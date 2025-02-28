@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Index - Personal Website</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <video id="bg-video" autoplay loop muted playsinline>
+        <source src="assets/img/bg.mp4" type="video/mp4">
+      </video>
+    
+      <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="index.html" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Certificate Details</h1>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="index.html#certificates">Certificates</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+        </div>
+      </header>
+
+
+    <!-- Certificate Details Section -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init(); // Reinitialize AOS for animations
+  
+      const certificateLinks = document.querySelectorAll(".certificate-link, .certificate-click");
+      const certificateImage = document.getElementById("certificate-image");
+      const certificateTitle = document.getElementById("certificate-title");
+      const certificateDescription = document.getElementById("certificate-description");
+      const certificateDetailsSection = document.getElementById("certificate-details");
+  
+      certificateLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+          event.preventDefault();
+  
+          // Remove active class from all links
+          document.querySelectorAll(".certificate-link").forEach(l => l.classList.remove("active"));
+          if (this.classList.contains("certificate-link")) {
+            this.classList.add("active");
+          }
+  
+          // Get certificate details from data attributes
+          const newTitle = this.getAttribute("data-title");
+          const newDescription = this.getAttribute("data-description");
+          const newImage = this.getAttribute("data-image");
+  
+          // Apply fade-out effect
+          certificateDetailsSection.style.opacity = "0";
+          certificateDetailsSection.style.transform = "translateY(10px)";
+  
+          setTimeout(() => {
+            // Update certificate details
+            certificateTitle.textContent = newTitle;
+            certificateDescription.textContent = newDescription;
+            certificateImage.src = newImage ? newImage : "assets/img/certificates/default.jpg";
+  
+            // Apply fade-in effect
+            certificateDetailsSection.style.opacity = "1";
+            certificateDetailsSection.style.transform = "translateY(0)";
+          }, 200); // Smooth transition delay
+        });
+      });
+    });
+  </script>
+  
+  <section id="certificate-details" class="certificate-details section">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="100">
+          <div class="certificates-list">
+            <a href="#certificate-details" class="certificate-link active" data-title="Peer Tutor" 
+              data-description="I received a Certificate of Appreciation for serving as a Peer Tutor during the UPGRADE: CCIS Peer Tutorial 2024 at Caraga State University on December 4, 2024. Held at the CCIS building, the event promoted academic collaboration under the theme Elevating Academic Excellence Through Collaborative Learning. I specifically taught C language, guiding students in programming fundamentals, syntax, debugging, and problem-solving. This recognition highlights my commitment to knowledge-sharing and empowering others through education, with the awarding ceremony taking place at Hiraya Auditorium, signed by CCISLSG advisers and the governor." 
+              data-image="assets/img/certificates/tutor.jpg">Peer Tutor</a>
+            
+            <a href="#certificate-details" class="certificate-link" data-title="Research Congress Best Presentor" 
+              data-description="I received the Best Presenter certificate at the 5th SHS Research Congress of Caraga State University on June 8, 2022. My presentation focused on Fermented Mango Juice as a new variety of vinegar under the Food and Drug Innovation category. The study explored an innovative approach to vinegar production, highlighting its sustainability and market potential. This recognition reflects my ability to effectively communicate research findings and engage an audience, demonstrating both subject expertise and presentation skills in an academic setting." 
+              data-image="assets/img/certificates/bestpresentor.jpg">Research Conference Best Presentor</a>
+            
+            <a href="#certificate-details" class="certificate-link" data-title="Sololearn HTML" 
+              data-description="I earned this Introduction to HTML certificate from Sololearn on August 26, 2024. This course provided me with a solid foundation in HTML, covering essential concepts for structuring web pages. It strengthened my understanding of front-end development and enhanced my ability to create well-structured websites." 
+              data-image="assets/img/certificates/HTML.jpg">Sololearn HTML</a>
+            
+            <a href="#certificate-details" class="certificate-link" data-title="Sololearn CSS" 
+              data-description="I successfully completed the Introduction to CSS course online through Sololearn on August 30, 2024. This course provided me with a solid foundation in CSS, covering essential topics such as selectors, properties, box model, flexbox, grid, and responsive design. I gained practical experience in styling web pages, improving layouts, and making websites visually appealing. This certification strengthens my front-end development skills, complementing my knowledge of HTML and enhancing my ability to build well-structured, responsive, and user-friendly web designs." 
+              data-image="assets/img/certificates/CSS.jpg">Sololearn CSS</a>
+            
+            <a href="#certificate-details" class="certificate-link" data-title="Sololearn JavaScript" 
+              data-description="I completed the Introduction to JavaScript course online through Sololearn on November 16, 2024. This course covered JavaScript fundamentals, including variables, functions, and loops. Through interactive exercises, I developed skills in writing dynamic scripts to enhance web interactivity. This certification strengthens my front-end development expertise by enabling me to build interactive and responsive web applications." 
+              data-image="assets/img/certificates/JAVA.jpg">Sololearn JavaScript</a>
+          </div>
+          <h4 id="certificate-title">Select a certificate</h4>
+          <p id="certificate-description"></p>
+        </div>
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+          <img src="assets/img/certificates/default.jpg" id="certificate-image" alt="Certificate" class="img-fluid services-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <p><i>"Strive to innovate and be the power person for future innovation"</i></p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://web.facebook.com/message.mindblow"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/m_arffh/?igsh=amthNGkzOWhhMWVk&fbclid=IwY2xjawItiu5leHRuA2FlbQIxMAABHbcR9gcunP2ueTuEzdSD8Wi81hLQ5_0gIP5rGt-du8nUpVLNJfclHnbdfQ_aem_Uz5Zn_jiSFA8H4AglFDndQ#"><i class="bi bi-instagram"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          
+          Designed by <a href="https://web.facebook.com/message.mindblow?_rdc=1&_rdr#">Mark Gerongco</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+   <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
